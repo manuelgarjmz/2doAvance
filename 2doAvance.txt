@@ -1,0 +1,92 @@
+#include <iostream>
+
+using namespace std;
+
+struct info
+{
+    int numerocita;
+    char nombre[50];
+    char hora[6];
+    char tratamiento[50];
+    char descripcion[100];
+    int preciounit;
+    int cant;
+};
+
+int main()
+{
+    int opcion;
+    int i;
+    int j;
+    int total;
+    info datos[5];
+    int repeticion = 1;
+
+    while (repeticion == 1)
+    {
+        cout << "\t Seleccione lo que desea realizar \n";
+        printf("1.- Agendar Cita \n");
+        cout << "2.- Modificar Cita \n";
+        cout << "3.-Eliminar Cita \n";
+        cout << "4.- Lista de citas vigentes \n";
+        cout << "5.- Limpiar Pantalla  \n";
+        cout << "6.- Salir \n";
+        cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            for (i = 0; i < 5; i++)
+            {
+
+                datos[i].numerocita = i + 1;
+                cout << "Cita: " << datos[i].numerocita << endl;
+                cout << "Ingrese el nombre del paciente \n";
+                cin >> datos[i].nombre;
+                cout << "Ingrese la hora del tratamiento (en formato de 24 horas) \n";
+                cin >> datos[i].hora;
+                cout << "Ingrese el nombre del tratamiento \n";
+                cin >> datos[i].tratamiento;
+                cout << "Ingrese la descripcion del tratamiento \n";
+                cin >> datos[i].descripcion;
+                cout << "Ingrese el precio unitario del tratamiento \n";
+                cin >> datos[i].preciounit;
+                cout << "Ingrese la cantidad del tratamiento \n";
+                cin >> datos[i].cant;
+
+                total = datos[i].preciounit * datos[i].cant;
+                cout << "El total es:" << total << endl;
+
+            }
+            break;
+
+        case 2:
+            break;
+
+        case 3:
+            break;
+
+        case 4:
+            for (i = 0; i < 5; i++)
+            {
+
+                cout << "Cita: " << datos[i].numerocita << endl;
+                cout << datos[i].nombre << endl;
+                cout << datos[i].tratamiento << endl;
+                cout << datos[i].descripcion << endl;
+                cout << datos[i].hora << endl;
+                cout << total << endl;
+            }
+            break;
+
+        case 5:
+            break;
+
+        case 6:
+            repeticion = 2;
+            break;
+
+        }
+    }
+    return 0;
+}
